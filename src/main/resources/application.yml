@@ -3,8 +3,13 @@
 
 spring:
   profiles:
-    active: native, ${RMS_APP_PROFILE:local}
-  cloud.config.label: config
-
+    active: ${RMS_APP_PROFILE:local}
+    
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/revature-resource-force/rms-config-files
+          force-pull: true
 server:
   port: 8888
